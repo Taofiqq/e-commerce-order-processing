@@ -1,0 +1,49 @@
+[
+  {
+    "id": "default",
+    "config": {
+      "steps/03-check-state-change.step.ts": {
+        "x": 18,
+        "y": 629
+      },
+      "steps/02-test-state.step.ts": {
+        "x": 0,
+        "y": 447
+      },
+      "steps/01-api.step.ts": {
+        "x": 3,
+        "y": 232
+      },
+      "steps/00-noop.step.ts": {
+        "x": 81,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": "OrderProcessing",
+    "config": {
+      "steps/process-order.step.ts": {
+        "x": 0,
+        "y": 255
+      }
+    }
+  },
+  {
+    "id": "order-processing",
+    "config": {
+      "steps/payment-webhook.step.ts": {
+        "x": 0,
+        "y": 0
+      },
+      "steps/order-validation.step.ts": {
+        "x": 0,
+        "y": 0
+      },
+      "steps/inventory-check.step.ts": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+]
