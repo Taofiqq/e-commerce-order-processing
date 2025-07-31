@@ -16,7 +16,12 @@ declare module 'motia' {
     'CheckStateChange': EventHandler<{ key: string; expected: string }, never>
     'SetStateChange': EventHandler<{ message: string }, { topic: 'check-state-change'; data: { key: string; expected: string } }>
     'ApiTrigger': ApiRouteHandler<{ message: string }, ApiResponse<200, { message: string; traceId: string }>, { topic: 'test-state'; data: { message: string } }>
-    'OrderValidation': EventHandler<{ eventId: string; eventType: string; paymentData?: unknown; timestamp: string }, never>
-    'InventoryCheck': EventHandler<{ eventId: string; eventType: string; paymentData?: unknown; timestamp: string }, never>
+    'OrderValidation': EventHandler<{ eventId: string; eventType: string; paymentData?: unknown; timestamp: string }, { topic: 'order.validated'; data: { orderId: string; validated?: boolean; allAvailable?: boolean; inventoryResults?: unknown[]; customerId?: string; amount?: number; currency?: string } }>
+    'InventoryCheck': EventHandler<{ eventId: string; eventType: string; paymentData?: unknown; timestamp: string }, { topic: 'inventory.checked'; data: { orderId: string; validated?: boolean; allAvailable?: boolean; inventoryResults?: unknown[]; customerId?: string; amount?: number; currency?: string } }>
+    'OrderCoordinator': EventHandler<{ orderId: string; validated?: boolean; allAvailable?: boolean; inventoryResults?: unknown[]; customerId?: string; amount?: number; currency?: string }, { topic: 'order.ready'; data: { orderId: string; customerId?: string; amount?: number; currency?: string; validated?: boolean; allAvailable?: boolean; inventoryResults?: unknown[]; readyForCreation?: boolean } }>
+    'OrderCreation': EventHandler<{ orderId: string; customerId?: string; amount?: number; currency?: string; validated?: boolean; allAvailable?: boolean; inventoryResults?: unknown[]; readyForCreation?: boolean }, never>
+    'FulfillmentPlanning': EventHandler<never, { topic: 'fulfillment.planned'; data: { orderId: string; fulfillmentPlan: unknown[]; shippingOptions?: unknown; estimatedShipDate: string; trackingNumber: string } }>
+    'CustomerNotification': EventHandler<{ orderId: string; fulfillmentPlan: unknown[]; shippingOptions?: unknown; estimatedShipDate: string; trackingNumber: string }, never>
+    'OrderStatusAPI': ApiRouteHandler<Record<string, unknown>, unknown, never>
   }
 }

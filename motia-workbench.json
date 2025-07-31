@@ -33,16 +33,36 @@
     "id": "order-processing",
     "config": {
       "steps/payment-webhook.step.ts": {
-        "x": 0,
+        "x": 205,
         "y": 0
       },
       "steps/order-validation.step.ts": {
         "x": 0,
-        "y": 0
+        "y": 255
       },
       "steps/inventory-check.step.ts": {
-        "x": 0,
-        "y": 0
+        "x": 410,
+        "y": 255
+      },
+      "steps/order-coordinator.step.ts": {
+        "x": 205,
+        "y": 437
+      },
+      "steps/order-creation.step.ts": {
+        "x": 205,
+        "y": 639
+      },
+      "steps/fulfill-order.step.py": {
+        "x": 205,
+        "y": 821
+      },
+      "steps/customer-notification.step.ts": {
+        "x": 205,
+        "y": 1003
+      },
+      "steps/order-status-api.step.ts": {
+        "x": 615,
+        "y": 10
       }
     }
   }
